@@ -29,7 +29,7 @@ contract WaxToken is StandardToken, Pausable {
   string public constant name = 'Wax Token';                          // Set the token name for display
   string public constant symbol = 'WAX';                                 // Set the token symbol for display
   uint8 public constant decimals = 8;                                  // Set the number of decimals for display
-  uint256 public constant INITIAL_SUPPLY = 1000000000 * 10**uint256(decimals);    // 1 Billion VEE specified in Grains
+  uint256 public constant INITIAL_SUPPLY = 1e9 * 10**uint256(decimals);    // 1 Billion VEE specified in Grains
 
   /**
    * @dev Modifier to make a function callable only when the contract is not paused.
