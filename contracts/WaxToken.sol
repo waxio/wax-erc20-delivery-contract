@@ -77,10 +77,6 @@ contract WaxToken is StandardToken, Pausable {
     return super.approve(_spender, _value);
   }
 
-  function() payable {
-      revert();
-  }
-
   /**
    * Adding whenNotPaused
    */
