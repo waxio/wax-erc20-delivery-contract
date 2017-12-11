@@ -1,13 +1,12 @@
 pragma solidity ^0.4.13;
 
-
 import "zeppelin-solidity/contracts/token/StandardToken.sol";
 import "zeppelin-solidity/contracts/lifecycle/Pausable.sol";
 
 
 /**
  * @title WaxToken
- * @dev ERC20 Wax Token (WAX)
+ * @dev ERC20 WAX Token
  *
  * WAX Tokens are divisible by 1e8 (100,000,000) base
  * units referred to as 'Grains'.
@@ -17,19 +16,18 @@ import "zeppelin-solidity/contracts/lifecycle/Pausable.sol";
  * 1 WAX is equivalent to:
  *   100000000 == 1 * 10**8 == 1e8 == One Hundred Million Grains
  *
- * 1 Billion WAX (total supply) is equivalent to:
- *   100000000000000000 == 1000000000 * 10**8 == 1e17 == One Hundred Quadrillion Grains
+ * 185 Million WAX (total supply) is equivalent to:
+ *   185000000000000 == 185e6 * 10**8 == 185e14
  *
  * All initial WAX Grains are assigned to the creator of
  * this contract.
- *
  */
 contract WaxToken is StandardToken, Pausable {
 
-  string public constant name = 'Wax Token';                          // Set the token name for display
-  string public constant symbol = 'WAX';                                 // Set the token symbol for display
-  uint8 public constant decimals = 8;                                  // Set the number of decimals for display
-  uint256 public constant INITIAL_SUPPLY = 1e9 * 10**uint256(decimals);    // 1 Billion VEE specified in Grains
+  string public constant name = 'Wax Token';                              // Set the token name for display
+  string public constant symbol = 'WAX';                                  // Set the token symbol for display
+  uint8 public constant decimals = 8;                                     // Set the number of decimals for display
+  uint256 public constant INITIAL_SUPPLY = 185e6 * 10**uint256(decimals); // supply specified in Grains
 
   /**
    * @dev Modifier to make a function callable only when the contract is not paused.
