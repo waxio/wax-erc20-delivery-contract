@@ -77,4 +77,18 @@ contract WaxToken is StandardToken, Pausable {
       revert();
   }
 
+  /**
+   * Adding whenNotPaused
+   */
+  function increaseApproval (address _spender, uint _addedValue) whenNotPaused returns (bool success) {
+    return super.increaseApproval(_spender, _addedValue);
+  }
+
+  /**
+   * Adding whenNotPaused
+   */
+  function decreaseApproval (address _spender, uint _subtractedValue) whenNotPaused returns (bool success) {
+    return super.decreaseApproval(_spender, _subtractedValue);
+  }
+
 }
