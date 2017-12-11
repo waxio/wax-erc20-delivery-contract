@@ -32,6 +32,14 @@ contract WaxToken is StandardToken, Pausable {
   uint256 public constant INITIAL_SUPPLY = 1000000000 * 10**uint256(decimals);    // 1 Billion VEE specified in Grains
 
   /**
+   * @dev Modifier to make a function callable only when the contract is not paused.
+   */
+  modifier rejectTokensToContract(address _to) {
+    require(_to != address(this));
+    _;
+  }
+
+  /**
    * @dev WaxToken Constructor
    * Runs only on initial contract creation.
    */
@@ -46,9 +54,7 @@ contract WaxToken is StandardToken, Pausable {
    * @param _to The address to transfer to.
    * @param _value The amount to be transferred.
    */
-  function transfer(address _to, uint256 _value) whenNotPaused returns (bool) {
-    require(_to != address(0));
-    require(_to != address(this));
+  function transfer(address _to, uint256 _value) rejectTokensToContract(_to) whenNotPaused returns (bool) {
     return super.transfer(_to, _value);
   }
 
@@ -58,9 +64,7 @@ contract WaxToken is StandardToken, Pausable {
    * @param _to address The address which you want to transfer to
    * @param _value uint256 the amount of tokens to be transferred
    */
-  function transferFrom(address _from, address _to, uint256 _value) whenNotPaused returns (bool) {
-    require(_to != address(0));
-    require(_to != address(this));
+  function transferFrom(address _from, address _to, uint256 _value) rejectTokensToContract(_to) whenNotPaused returns (bool) {
     return super.transferFrom(_from, _to, _value);
   }
 

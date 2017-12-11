@@ -434,7 +434,7 @@ it('should not allow transfer() when _to is the contract address', () => {
       .catch((error) => {
       assert(
           error.message.indexOf('invalid opcode') >= 0,
-      'accounts trying to transfer() when _to is 0x0000000000000000000000000000000000000000 should throw an invalid opcode exception.'
+      'accounts trying to transfer() when _to is the contract address should throw an invalid opcode exception.'
   )
   })
 })
@@ -511,7 +511,7 @@ it('should not allow transferFrom() when _to is the contract address', () => {
       .catch((error) => {
       assert(
           error.message.indexOf('invalid opcode') >= 0,
-      'accounts trying to transferFrom() when _to is 0x0000000000000000000000000000000000000000 should throw an invalid opcode exception.'
+      'accounts trying to transferFrom() when _to is the contract address should throw an invalid opcode exception.'
   )
   })
   .then(() => {
