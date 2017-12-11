@@ -1,4 +1,4 @@
-# Ethereum Smart Contract for delivery of the WAX ERC20 token
+# Ethereum Smart Contract for delivery of WAX ERC20 tokens
 
 An `ERC20` standard token. Built on the [OpenZeppelin](https://openzeppelin.org/) framework.
 

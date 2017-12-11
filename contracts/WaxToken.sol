@@ -1,8 +1,8 @@
 pragma solidity ^0.4.13;
 
 
-import "./zeppelin-solidity/contracts/token/StandardToken.sol";
-import "./zeppelin-solidity/contracts/lifecycle/Pausable.sol";
+import "zeppelin-solidity/contracts/token/StandardToken.sol";
+import "zeppelin-solidity/contracts/lifecycle/Pausable.sol";
 
 
 /**
@@ -38,7 +38,6 @@ contract WaxToken is StandardToken, Pausable {
   function WaxToken() {
     totalSupply = INITIAL_SUPPLY;                               // Set the total supply
     balances[msg.sender] = INITIAL_SUPPLY;                      // Creator address is assigned all
-    contractAddress = this;
     Transfer(0x0, msg.sender, INITIAL_SUPPLY);
   }
 
@@ -49,7 +48,7 @@ contract WaxToken is StandardToken, Pausable {
    */
   function transfer(address _to, uint256 _value) whenNotPaused returns (bool) {
     require(_to != address(0));
-    require(_to != contractAddress);
+    require(_to != address(this));
     return super.transfer(_to, _value);
   }
 
@@ -61,7 +60,7 @@ contract WaxToken is StandardToken, Pausable {
    */
   function transferFrom(address _from, address _to, uint256 _value) whenNotPaused returns (bool) {
     require(_to != address(0));
-    require(_to != contractAddress);
+    require(_to != address(this));
     return super.transferFrom(_from, _to, _value);
   }
 
