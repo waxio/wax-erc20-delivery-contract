@@ -54,7 +54,7 @@ contract WaxToken is StandardToken, Pausable {
    * @param _to The address to transfer to.
    * @param _value The amount to be transferred.
    */
-  function transfer(address _to, uint256 _value) rejectTokensToContract(_to) whenNotPaused returns (bool) {
+  function transfer(address _to, uint256 _value) rejectTokensToContract(_to) public whenNotPaused returns (bool) {
     return super.transfer(_to, _value);
   }
 
@@ -64,7 +64,7 @@ contract WaxToken is StandardToken, Pausable {
    * @param _to address The address which you want to transfer to
    * @param _value uint256 the amount of tokens to be transferred
    */
-  function transferFrom(address _from, address _to, uint256 _value) rejectTokensToContract(_to) whenNotPaused returns (bool) {
+  function transferFrom(address _from, address _to, uint256 _value) rejectTokensToContract(_to) public whenNotPaused returns (bool) {
     return super.transferFrom(_from, _to, _value);
   }
 
@@ -73,21 +73,21 @@ contract WaxToken is StandardToken, Pausable {
    * @param _spender The address which will spend the funds.
    * @param _value The amount of tokens to be spent.
    */
-  function approve(address _spender, uint256 _value) whenNotPaused returns (bool) {
+  function approve(address _spender, uint256 _value) public whenNotPaused returns (bool) {
     return super.approve(_spender, _value);
   }
 
   /**
    * Adding whenNotPaused
    */
-  function increaseApproval (address _spender, uint _addedValue) whenNotPaused returns (bool success) {
+  function increaseApproval (address _spender, uint _addedValue) public whenNotPaused returns (bool success) {
     return super.increaseApproval(_spender, _addedValue);
   }
 
   /**
    * Adding whenNotPaused
    */
-  function decreaseApproval (address _spender, uint _subtractedValue) whenNotPaused returns (bool success) {
+  function decreaseApproval (address _spender, uint _subtractedValue) public whenNotPaused returns (bool success) {
     return super.decreaseApproval(_spender, _subtractedValue);
   }
 
