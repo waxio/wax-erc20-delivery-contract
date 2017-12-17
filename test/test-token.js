@@ -29,30 +29,30 @@ contract('WaxToken', (accounts) => {
     })
   })
 
-  it('should have INITIAL_SUPPLY set to 185e14 Grains', () => {
+  it('should have INITIAL_SUPPLY set to 185e15 Grains', () => {
     return WaxToken.deployed().then((instance) => {
       return instance.INITIAL_SUPPLY.call()
     })
     .then((supply) => {
-      assert.equal(supply, 185e14, "185e14 wasn't the value of INITIAL_SUPPLY Grains")
+      assert.equal(supply, 185e15, "185e15 wasn't the value of INITIAL_SUPPLY Grains")
     })
   })
 
-  it('should set totalSupply to 185e14 Grains', () => {
+  it('should set totalSupply to 185e15 Grains', () => {
     return WaxToken.deployed().then((instance) => {
       return instance.totalSupply.call()
     })
     .then((supply) => {
-      assert.equal(supply, 185e14, "185e14 wasn't the value of totalSupply Grains")
+      assert.equal(supply, 185e15, "185e15 wasn't the value of totalSupply Grains")
     })
   })
 
-  it('should put 185e14 Grains in the first account', () => {
+  it('should put 185e15 Grains in the first account', () => {
     return WaxToken.deployed().then((instance) => {
       return instance.balanceOf.call(accounts[0])
     })
     .then((balance) => {
-      assert.equal(balance.valueOf(), 185e14, '185e14 Grains were not assigned to the first account')
+      assert.equal(balance.valueOf(), 185e15, '185e15 Grains were not assigned to the first account')
     })
   })
 

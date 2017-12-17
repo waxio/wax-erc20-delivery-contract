@@ -13,11 +13,8 @@ import "zeppelin-solidity/contracts/lifecycle/Pausable.sol";
  *
  * WAX are displayed using 8 decimal places of precision.
  *
- * 1 WAX is equivalent to:
- *   100000000 == 1 * 10**8 == 1e8 == One Hundred Million Grains
- *
- * 185 Million WAX (total supply) is equivalent to:
- *   185000000000000 == 185e6 * 10**8 == 185e14
+ * 1.85 Billion WAX Token total supply (185 Quadrillion Grains):
+ *   1,850,000,000 * 1e8 == 185e7 * 10**8 == 185e15
  *
  * All initial WAX Grains are assigned to the creator of
  * this contract.
@@ -27,7 +24,7 @@ contract WaxToken is StandardToken, Pausable {
   string public constant name = 'Wax Token';                              // Set the token name for display
   string public constant symbol = 'WAX';                                  // Set the token symbol for display
   uint8 public constant decimals = 8;                                     // Set the number of decimals for display
-  uint256 public constant INITIAL_SUPPLY = 185e6 * 10**uint256(decimals); // supply specified in Grains
+  uint256 public constant INITIAL_SUPPLY = 185e7 * 10**uint256(decimals); // supply specified in Grains
 
   /**
    * @dev Modifier to make a function callable only when the contract is not paused.
